@@ -1,1 +1,1 @@
-**Mimetix** — это модульная, масштабируемая платформа для автоматизированного сбора, хранения, анализа и генерации инсайтов по Instagram Reels и другим социальным медиа.
+**Mimetix** — is a modular, scalable platform for automated collection, storage, analysis and generation of insights on Instagram Reels.
