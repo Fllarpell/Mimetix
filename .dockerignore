@@ -1,0 +1,22 @@
+# .dockerignore for Project Prometheus
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.log
+*.tmp
+*.bak
+*.cache
+node_modules/
+dist/
+build/
+.env
+.env.*
+secrets/
+.idea/
+.vscode/
+.DS_Store
+.git/
+.gitignore

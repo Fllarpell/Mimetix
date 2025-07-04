@@ -1,0 +1,33 @@
+# Project Owners & Maintainers
+
+- @founder (Lead Architect, AI/ML)
+- @ml-lead (Head of Machine Learning)
+- @de-lead (Head of Data Engineering)
+- @swe-lead (Head of Software Engineering)
+- @product (Product Owner)
+
+## Component Ownership
+- ingestion/, feature_store/, storage/: @de-lead
+- intelligence/, ml/, trend_engine/: @ml-lead
+- api_gateway/, user_apps/: @swe-lead
+- docs/, compliance/: @product
+
+> Add GitHub usernames or emails for each owner as needed.
+
+# OWNERS file for code review automation
+# Format: <path pattern> <github_username_1> <github_username_2> ...
+
+# Global owners (can approve any change)
+* @core-team-lead @principal-engineer
+
+# Infrastructure
+/infra/ @sre-team-lead @devops-guru
+
+# Billing
+/services/billing/ @backend-billing-lead @finance-tech-contact
+
+# Frontend
+/apps/dashboard-web/ @frontend-lead-1 @frontend-lead-2
+
+# ML pipelines
+/ml/ @ml-infra-lead @scientist-lead

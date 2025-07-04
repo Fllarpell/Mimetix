@@ -1,0 +1,60 @@
+# ===============================================================================
+# .bazelrc for Prometheus Intelligence Platform
+# This file defines common flags and configs for Bazel, ensuring consistency and convenience for devs and CI/CD.
+# Use `bazel <command> --config=<name> //...`
+# ===============================================================================
+
+# --- Import shared configs (best practice for large monorepos) ---
+import %workspace%/build/bazel/common.bazelrc
+import %workspace%/build/bazel/platforms.bazelrc
+
+# --- Common flags for all commands ---
+common --color=yes
+common --curses=no
+common --announce_rc
+
+# --- Command-specific flags ---
+build --show_progress=true
+build --show_progress_rate_limit=5
+build --verbose_failures
+
+test --test_output=errors
+test --test_summary=detailed
+test --test_verbose_timeout_warnings
+
+# --- Named configs for --config=NAME ---
+# Dev (fast, debug)
+build:dev --compilation_mode=dbg
+build:dev --strip=never
+build:dev --enable_runfiles
+# Release (optimized)
+build:release --compilation_mode=opt
+build:release --strip=always
+build:release --features=thin_lto
+build:release --define=release=true
+# CI
+build:ci --compilation_mode=opt
+build:ci --strip=always
+build:ci --features=thin_lto
+build:ci --define=ci=true
+test:ci --config=release
+test:ci --flaky_test_attempts=3
+test:ci --cache_test_results=no
+test:ci --build_tests_only
+test:ci --test_env=CI=true
+test:ci --remote_download_toplevel
+# AddressSanitizer
+test:asan --config=dev
+test:asan --copt="-fsanitize=address" --linkopt="-fsanitize=address"
+# ThreadSanitizer
+test:tsan --config=dev
+test:tsan --copt="-fsanitize=thread" --linkopt="-fsanitize=thread"
+
+# --- Advanced: Remote cache and execution (uncomment and fill for your infra) ---
+# build --remote_cache=grpcs://remote-cache.prometheus.io
+# build --remote_executor=grpcs://remote-executor.prometheus.io
+# build --remote_instance_name=prod
+# build --remote_timeout=3600
+# build --google_default_credentials=yes
+# build:ci --remote_upload_local_results=true
+# build:ci --remote_accept_cached=true

@@ -1,0 +1,55 @@
+# .gitignore for Project Prometheus
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Go
+bin/
+*.exe
+*.test
+*.out
+
+# Node
+node_modules/
+.npm/
+
+# Data
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.db
+*.sqlite
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# Secrets
+.env
+.env.*
+secrets/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Git
+.git/
