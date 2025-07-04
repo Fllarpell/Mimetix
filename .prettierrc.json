@@ -24,7 +24,21 @@
       "files": ["*.yml", "*.yaml"],
       "options": {
         "tabWidth": 2,
-        "singleQuote": false
+        "singleQuote": false,
+        "proseWrap": "preserve"
+      }
+    },
+    {
+      "files": ["*.json"],
+      "options": {
+        "trailingComma": "none",
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.html", "*.css", "*.scss", "*.toml", "*.proto", "*.bazel", "*.bzl", "Dockerfile", "*.sh"],
+      "options": {
+        "tabWidth": 2
       }
     }
   ]

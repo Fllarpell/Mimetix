@@ -1,0 +1,12 @@
+node_modules
+build
+dist
+.venv
+venv
+vendor
+data
+output
+.ipynb_checkpoints
+site
+docs/_build
+bazel-* 

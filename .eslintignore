@@ -1,0 +1,16 @@
+node_modules/
+build/
+dist/
+coverage/
+public/
+vendor/
+*.min.js
+*.bundle.js
+*.lock
+*.log
+*.json
+*.snap
+*.test.js
+*.test.ts
+*.test.tsx
+*.d.ts 

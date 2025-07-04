@@ -1,7 +1,6 @@
 # ===============================================================================
 # .bazelrc for Prometheus Intelligence Platform
-# This file defines common flags and configs for Bazel, ensuring consistency and convenience for devs and CI/CD.
-# Use `bazel <command> --config=<name> //...`
+# Multi-language, ML/AI, Data, Web, and Microservices monorepo
 # ===============================================================================
 
 # --- Import shared configs (best practice for large monorepos) ---
@@ -43,12 +42,68 @@ test:ci --cache_test_results=no
 test:ci --build_tests_only
 test:ci --test_env=CI=true
 test:ci --remote_download_toplevel
-# AddressSanitizer
+
+# AddressSanitizer (for C++/Go/Rust microservices)
 test:asan --config=dev
 test:asan --copt="-fsanitize=address" --linkopt="-fsanitize=address"
 # ThreadSanitizer
 test:tsan --config=dev
 test:tsan --copt="-fsanitize=thread" --linkopt="-fsanitize=thread"
+
+# --- Python (ML/AI, ETL, Data) ---
+build --experimental_enable_python_zip_import
+build --enable_runfiles
+# Hermetic builds, pip support (rules_python)
+build --python_path=python3
+# Coverage, lint, type-checking
+# test:pycov --collect_code_coverage --instrument_test_targets
+# test:pylint --test_tag_filters=pylint
+# test:mypy --test_tag_filters=mypy
+# test:pytest --test_tag_filters=pytest
+# Formatters
+# build:black --test_tag_filters=black
+# build:isort --test_tag_filters=isort
+
+# --- Node.js/TypeScript (Frontend, BFF) ---
+# (rules_nodejs will pick up node_modules, etc.)
+# Lint, format, test
+# test:eslint --test_tag_filters=eslint
+# build:prettier --test_tag_filters=prettier
+# test:jest --test_tag_filters=jest
+
+# --- Go (Backend, ingestion) ---
+# (rules_go will pick up go.mod, etc.)
+# Lint, vet, test
+# test:golint --test_tag_filters=golint
+# test:govet --test_tag_filters=govet
+# test:gotest --test_tag_filters=gotest
+
+# --- Rust (high-perf ingestion, microservices) ---
+# (rules_rust)
+# test:cargo_check --test_tag_filters=cargo_check
+# test:cargo_clippy --test_tag_filters=cargo_clippy
+
+# --- JVM (optional, for Spark/Scala/Java) ---
+# (rules_jvm)
+# build:jvm --javacopt="-Xlint:all"
+
+# --- Protobuf/gRPC (for API, ML, data contracts) ---
+# (rules_proto, rules_proto_grpc)
+# build:proto --proto_path=.
+
+# --- Docker (for microservices, ML/AI, feature extractors) ---
+build:docker --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64
+build:docker --define=DOCKER_BUILDKIT=1
+# build:docker_build --test_tag_filters=docker_build
+
+# --- GPU/ML/AI (CUDA, TensorFlow, PyTorch) ---
+# Uncomment if you use GPU for feature extraction/ML
+# build:gpu --crosstool_top=@local_config_cuda//crosstool:toolchain
+# build:gpu --define=using_cuda=true --define=using_cuda_nvcc=true
+
+# --- S3/GCS/Cloud Storage integration (for data/video storage) ---
+# build:s3 --define=S3_BUCKET=your-bucket
+# build:gcs --define=GCS_BUCKET=your-bucket
 
 # --- Advanced: Remote cache and execution (uncomment and fill for your infra) ---
 # build --remote_cache=grpcs://remote-cache.prometheus.io
@@ -58,3 +113,9 @@ test:tsan --copt="-fsanitize=thread" --linkopt="-fsanitize=thread"
 # build --google_default_credentials=yes
 # build:ci --remote_upload_local_results=true
 # build:ci --remote_accept_cached=true
+
+# --- ML/AI pipeline notes ---
+# For large data/ML jobs, prefer batch jobs via Airflow/Argo, not Bazel targets.
+# Use Bazel for reproducible builds, packaging, and test orchestration.
+
+# --- End of .bazelrc ---

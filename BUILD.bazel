@@ -1,0 +1,41 @@
+# BUILD.bazel (root) — шаблон для Prometheus Intelligence Platform
+
+# Python example
+# load("@rules_python//python:defs.bzl", "py_library")
+# py_library(
+#     name = "core_py",
+#     srcs = glob(["**/*.py"]),
+#     deps = [],
+# )
+
+# TypeScript/Node.js example
+# load("@build_bazel_rules_nodejs//:index.bzl", "ts_project")
+# ts_project(
+#     name = "core_ts",
+#     srcs = glob(["**/*.ts", "**/*.tsx"]),
+#     deps = [],
+# )
+
+# Go example
+# load("@io_bazel_rules_go//go:def.bzl", "go_library")
+# go_library(
+#     name = "core_go",
+#     srcs = glob(["**/*.go"]),
+#     importpath = "github.com/yourorg/yourrepo",
+#     deps = [],
+# )
+
+# Docker example
+# load("@io_bazel_rules_docker//docker:docker.bzl", "docker_build")
+# docker_build(
+#     name = "core_image",
+#     base = "python:3.10-slim",
+#     files = [":core_py"],
+# )
+
+# Protobuf example
+# load("@rules_proto//proto:defs.bzl", "proto_library")
+# proto_library(
+#     name = "core_proto",
+#     srcs = glob(["**/*.proto"]),
+# ) 

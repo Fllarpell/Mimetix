@@ -1,0 +1,96 @@
+# Ignore node_modules and package managers
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python virtualenvs and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Bazel output
+bazel-*/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Data, models, logs
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.pb
+*.log
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.tar.gz
+*.zip
+*.tar
+*.gz
+*.bz2
+*.7z
+*.db
+*.sqlite
+*.sqlite3
+*.hdf5
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.mov
+*.avi
+*.webm
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.webp
+*.svg
+
+# Jupyter and notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# System files
+.DS_Store
+Thumbs.db
+
+# External/vendor
+vendor/
+
+# Ignore Bazel symlinks
+bazel-out/
+
+# Ignore Docker artifacts
+docker/
+*.tar
+
+# Ignore coverage
+coverage/
+.coverage
+*.cover
+
+# Ignore test snapshots
+__snapshots__/
+
+# Ignore docs build
+site/
+docs/_build/
+
+# Ignore other config
+.env
+.env.* 

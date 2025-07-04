@@ -7,11 +7,12 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-.eggs/
-.pytest_cache/
+.venv/
+venv/
 
 # Jupyter
 .ipynb_checkpoints/
+*.ipynb
 
 # Go
 bin/
@@ -21,35 +22,88 @@ bin/
 
 # Node
 node_modules/
-.npm/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Data
+# Bazel
+bazel-*/
+
+# Data, models, logs
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.pb
+*.log
 *.csv
 *.tsv
 *.parquet
-*.h5
-*.db
-*.sqlite
-*.pkl
-*.joblib
+*.feather
 *.npy
 *.npz
+*.pkl
+*.joblib
+*.tar.gz
+*.zip
+*.tar
+*.gz
+*.bz2
+*.7z
+*.db
+*.sqlite
+*.sqlite3
+*.hdf5
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.mov
+*.avi
+*.webm
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.webp
+*.svg
 
-# Secrets
-.env
-.env.*
-secrets/
+# Docker
+*.tar
+docker/
 
-# IDEs
+# Coverage
+coverage/
+.coverage
+*.cover
+
+# Test snapshots
+__snapshots__/
+
+# Docs build
+site/
+docs/_build/
+
+# System
+.DS_Store
+Thumbs.db
+
+# IDE
 .idea/
 .vscode/
-*.swp
-*.swo
-.DS_Store
+*.sublime-workspace
+*.sublime-project
 
-# OS
-Thumbs.db
-Desktop.ini
+# Env
+.env
+.env.*
+
+# Secrets
+secrets/
 
 # Git
 .git/
