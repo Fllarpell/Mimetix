@@ -100,7 +100,6 @@ Thumbs.db
 
 # Env
 .env
-.env.*
 
 # Secrets
 secrets/

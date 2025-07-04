@@ -1,0 +1,31 @@
+{
+  "dashboard": {
+    "title": "Scraper Fleet Ingestion",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "Successful Runs",
+        "targets": [{
+          "expr": "scraper_success_total",
+          "format": "time_series"
+        }],
+        "id": 1
+      },
+      {
+        "type": "stat",
+        "title": "Failed Runs",
+        "targets": [{
+          "expr": "scraper_error_total",
+          "format": "time_series"
+        }],
+        "id": 2
+      }
+    ],
+    "annotations": {
+      "list": []
+    },
+    "templating": {
+      "list": []
+    }
+  }
+} 

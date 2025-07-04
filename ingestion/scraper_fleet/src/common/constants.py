@@ -1,0 +1,15 @@
+"""
+Общие константы для Scraper Fleet.
+"""
+
+S3_DEFAULT_BUCKET = "your-s3-bucket"
+S3_DEFAULT_PREFIX = "reels/"
+INSTAGRAM_URL = "https://www.instagram.com"
+REEL_VIDEO_SELECTOR = "video"
+REEL_AUTHOR_SELECTOR = "header a"
+REEL_DESC_SELECTOR = "span[role='link']"
+REEL_LIKES_SELECTOR = "section span"
+REEL_TIME_SELECTOR = "time"
+REEL_LINK_SELECTOR = "article a[href*='/reel/']"
+PROMETHEUS_SUCCESS_METRIC = "scraper_success_total"
+PROMETHEUS_ERROR_METRIC = "scraper_error_total" 
